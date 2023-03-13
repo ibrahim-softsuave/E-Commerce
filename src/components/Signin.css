@@ -6,6 +6,7 @@
     left: 0;
     right: 0;
     z-index: 1;
+    
 }
 .signin {
     position: fixed;
@@ -15,6 +16,8 @@
     left: 70%;
     background-color: #ffff;
     z-index: 2;
+    display: flex;
+    align-items: center ;
 }
 .signin-container {
     display: flex;
@@ -49,4 +52,24 @@
 .form-child{
     display: flex;
     justify-content: space-between;
+}
+.form-input {
+    height: 40px;
+    background-color:rgb(246,246,246);
+    border-radius: 15px;
+    text-align: left;
+    padding: 10px;
+}
+.form-input input[type='text'],.form-input input[type='submit'] {
+    background-color: rgb(246,246,246);
+    border: 0;
+    width: 100%;
+}
+.form-input input:focus {
+    outline: none;
+}
+.form-input input[type='password'] {
+    background-color: rgb(246,246,246);
+    border: 0;
+    width: 90%;
 }

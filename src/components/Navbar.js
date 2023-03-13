@@ -1,7 +1,11 @@
-import * as BSIcons from 'react-icons/bs'
-import * as MDIcons from 'react-icons/md'
+// import * as BSIcons from 'react-icons/bs'
+// import * as MDIcons from 'react-icons/md'
 import title from '../title.webp'
 import search from '../search.svg'
+import cart from '../cart.svg'
+import collection from '../collection.svg'
+import gi from '../GI.svg'
+import social from '../social.svg'
 import { useState } from 'react'
 import SignIn from './Signin'
 
@@ -41,10 +45,10 @@ const Navbar =()=>
             </div>
             <div className='item2'>
             <ul>
-            <li><BSIcons.BsCart4/>cart</li>
-            <li> <MDIcons.MdOutlineAddLocationAlt/>GI</li>
-            <li><MDIcons.MdOutlineCollectionsBookmark/>Collection</li>
-            <li><BSIcons.BsPersonVideo/>social</li>
+            <li className='nav-left'><img className='nav-img' src={cart} alt='cart'></img>cart</li>
+            <li className='nav-left'><img className='nav-img' src={gi} alt='location'></img>GI</li>
+            <li className='nav-left'><img className='nav-img' src={collection} alt='collection'></img>Collection</li>
+            <li className='nav-left'><img className='nav-img' src={social} alt='Social'></img>social</li>
             <li><button onClick={handleSidebar}>Sign Up</button></li>
             </ul>
             </div>

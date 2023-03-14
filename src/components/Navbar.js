@@ -12,16 +12,25 @@ import SignIn from './Signin'
 import './Navbar.css'
 const Navbar =()=>
 {
-    const [isOpen,SetIsOpen]=useState(false)
+    const [isOpen,SetIsOpen]=useState(false);
+    const [isSiginUp, SetSiginUp] = useState(false);
+    const [visibileError,SetVisibleError]=useState(false);
     const handleSidebar =()=>{
         return(
-            SetIsOpen(!isOpen)
+            SetIsOpen(!isOpen),
+            SetSiginUp(false),
+            SetVisibleError(false)
         )
     }
+    const handleSignIn = () => {
+      return (
+          SetSiginUp(!isSiginUp)
+      )
+  };
     return (
         <header>
         <nav className='flex-container'>
-          <div className='item1'>
+          <div className='nav-item1'>
             <span className='nav-span'> <img className='nav-img'  src={title} alt='unipick'/>
             </span> 
             <div className='nav-search'>
@@ -43,7 +52,7 @@ const Navbar =()=>
             </div>
             </div>
             </div>
-            <div className='item2'>
+            <div className='nav-item2'>
             <ul>
             <li className='nav-left'><img className='nav-img' src={cart} alt='cart'></img>cart</li>
             <li className='nav-left'><img className='nav-img' src={gi} alt='location'></img>GI</li>
@@ -53,7 +62,7 @@ const Navbar =()=>
             </ul>
             </div>
         </nav>
-        <SignIn open={isOpen} onClose={handleSidebar}/>
+        <SignIn open={isOpen} onClose={handleSidebar} signUp={isSiginUp} signUpFun={handleSignIn} visibileError={visibileError} SetVisibleError={SetVisibleError}/>
         <hr></hr>
       </header>
     )

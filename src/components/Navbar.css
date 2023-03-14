@@ -32,7 +32,7 @@
     border: 0;
     background-color: #f5f6e5;
 }
-.item1 {
+.nav-item1 {
   display: flex;
   align-items: center;
 }
@@ -57,16 +57,16 @@ input[type='search']{
     padding: 10px;
 }
 
-.item2 ul{
+.nav-item2 ul{
     display: flex;
     align-items: center;
     list-style-type:none;
 }
-.item2 ul li {
+.nav-item2 ul li {
     width: 100px;
     text-align: center;
 }
-.item2 button {
+.nav-item2 button {
     background-color: #6ac7c9;
     border-radius: 10px;
     color: #ffff;

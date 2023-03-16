@@ -8,13 +8,16 @@ import gi from '../GI.svg'
 import social from '../social.svg'
 import { useState } from 'react'
 import SignIn from './Signin'
-
 import './Navbar.css'
+import * as CGIcons from 'react-icons/cg'
+import { IconContext } from 'react-icons'
+
 const Navbar =()=>
 {
     const [isOpen,SetIsOpen]=useState(false);
     const [isSiginUp, SetSiginUp] = useState(false);
     const [visibileError,SetVisibleError]=useState(false);
+    const [signinSuccess,SetSignInSuccess]=useState(false);
     const handleSidebar =()=>{
         return(
             SetIsOpen(!isOpen),
@@ -58,11 +61,19 @@ const Navbar =()=>
             <li className='nav-left'><img className='nav-img' src={gi} alt='location'></img>GI</li>
             <li className='nav-left'><img className='nav-img' src={collection} alt='collection'></img>Collection</li>
             <li className='nav-left'><img className='nav-img' src={social} alt='Social'></img>social</li>
-            <li><button onClick={handleSidebar}>Sign Up</button></li>
+            {signinSuccess ? <li className='nav-left'><p className='pro-icon'><IconContext.Provider value={{className:'icon1'}}><CGIcons.CgProfile/></IconContext.Provider></p>Me</li>:<li><button onClick={handleSidebar}>Sign Up</button></li>}
             </ul>
             </div>
         </nav>
-        <SignIn open={isOpen} onClose={handleSidebar} signUp={isSiginUp} signUpFun={handleSignIn} visibileError={visibileError} SetVisibleError={SetVisibleError}/>
+        {signinSuccess ?'':<SignIn 
+        open={isOpen}
+        onClose={handleSidebar} 
+        signUp={isSiginUp}
+        signUpFun={handleSignIn} 
+        visibileError={visibileError}
+        SetVisibleError={SetVisibleError}
+        signInSuccess={SetSignInSuccess}
+        />}
         <hr></hr>
       </header>
     )

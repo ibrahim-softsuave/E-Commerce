@@ -78,3 +78,12 @@ input[type='search']{
     display: inline-block;
     height: 20px;
 }
+.pro-icon {
+    width: 100px;
+    text-align: center;
+}
+.icon1 {
+    width: 100px;
+    display: inline-block;
+    height: 20px;
+}

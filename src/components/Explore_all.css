@@ -1,0 +1,52 @@
+.explore-grid-container{
+    display: grid;
+    grid-template-rows:100px,auto;
+    grid-template-columns: auto,repeat(4,1fr);
+}
+.explore-container-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+}
+.explore-container-header p {
+    font-size: 22px;
+}
+.explore_item2 {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+    width: 600px;
+    align-items: center;
+}
+.explore_item2 > button {
+    background-color: #ffff;
+    height: 35px;
+    width: 100px;
+    border-radius: 15px;
+    font-size: 16px;
+}
+.explore_item2 > button:nth-child(2){
+    background-color: #ffdf03;
+    width: 150px;
+}
+.explore_item2 >div {
+    height: 35px;
+    width: 220px;
+    font-size: 13px;
+    border-radius: 15px;
+    border: 1px solid;
+    display: flex;
+    align-items: center ;
+    justify-content: flex-end;
+    background-color:rgb(246,246,246);
+    padding: 10px;
+
+}
+.explore_item2 >div >select {
+    border: none;
+    background-color:rgb(246,246,246);
+    margin-right:10px ;
+    margin-left: 10px;
+}

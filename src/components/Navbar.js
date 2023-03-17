@@ -6,7 +6,7 @@ import cart from '../cart.svg'
 import collection from '../collection.svg'
 import gi from '../GI.svg'
 import social from '../social.svg'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import SignIn from './Signin'
 import './Navbar.css'
 import * as CGIcons from 'react-icons/cg'
@@ -18,6 +18,14 @@ const Navbar =()=>
     const [isSiginUp, SetSiginUp] = useState(false);
     const [visibileError,SetVisibleError]=useState(false);
     const [signinSuccess,SetSignInSuccess]=useState(false);
+    const [alreadySigIN,SetAlreadySignIn]=useState(false);
+    useEffect(
+      ()=>{
+        if (localStorage.getItem('signin')){
+          SetAlreadySignIn(true)
+        }
+      },[]
+    )
     const handleSidebar =()=>{
         return(
             SetIsOpen(!isOpen),
@@ -29,7 +37,8 @@ const Navbar =()=>
       return (
           SetSiginUp(!isSiginUp)
       )
-  };
+  }
+
     return (
         <header>
         <nav className='flex-container'>
@@ -61,11 +70,11 @@ const Navbar =()=>
             <li className='nav-left'><img className='nav-img' src={gi} alt='location'></img>GI</li>
             <li className='nav-left'><img className='nav-img' src={collection} alt='collection'></img>Collection</li>
             <li className='nav-left'><img className='nav-img' src={social} alt='Social'></img>social</li>
-            {signinSuccess ? <li className='nav-left'><p className='pro-icon'><IconContext.Provider value={{className:'icon1'}}><CGIcons.CgProfile/></IconContext.Provider></p>Me</li>:<li><button onClick={handleSidebar}>Sign Up</button></li>}
+            {signinSuccess || alreadySigIN ? <li className='nav-left'><p className='pro-icon'><IconContext.Provider value={{className:'icon1'}}><CGIcons.CgProfile/></IconContext.Provider></p>Me</li>:<li><button onClick={handleSidebar}>Sign Up</button></li>}
             </ul>
             </div>
         </nav>
-        {signinSuccess ?'':<SignIn 
+        {signinSuccess || alreadySigIN ?'':<SignIn 
         open={isOpen}
         onClose={handleSidebar} 
         signUp={isSiginUp}

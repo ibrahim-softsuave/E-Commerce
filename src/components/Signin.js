@@ -28,8 +28,7 @@ const Signin = (props) => {
                 await axios.post(SIGNIN, { username: formDatas.signInEmail, password: formDatas.signInPassword })
                 .then(response => {
                     SetSignInSuccess(true)
-                    localStorage.setItem('signin',JSON.stringify(response.data.id))
-                    console.log(response)
+                    localStorage.setItem('signin',JSON.stringify(response.data))
                   
                 })
                 .catch(error => {

@@ -61,31 +61,31 @@ const Explore_all = () => {
                             <div className='category2'>
                                 <p>price</p>
                                 <div>
-                                <div className='category2-items'>
-                                <input type='radio' name='filter-price'></input> <label>Any price</label><br /></div>
-                                <div className='category2-items'> <input type='radio' name='filter-price'></input><label>1000 to 2000</label><br /></div>
-                                <div className='category2-items'><input type='radio' name='filter-price'></input><label>2000 to 4000</label><br /></div>
-                                <div className='category2-items'><input type='radio' name='filter-price'></input><label>Above 4000</label></div>   
+                                    <div className='category2-items'>
+                                        <input type='radio' name='filter-price'></input> <label>Any price</label><br /></div>
+                                    <div className='category2-items'> <input type='radio' name='filter-price'></input><label>1000 to 2000</label><br /></div>
+                                    <div className='category2-items'><input type='radio' name='filter-price'></input><label>2000 to 4000</label><br /></div>
+                                    <div className='category2-items'><input type='radio' name='filter-price'></input><label>Above 4000</label></div>
                                 </div>
                             </div>
 
-                    </div>
+                        </div>
                     </aside> : ''}
-                <div className='grid-pro'>
-                    {products.map((items, index) => {
-                        return (
-                            <div key={index}>
-                                <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
-                                </span>
-                                <p>Name : {items.productName}</p>
-                                <p>Price : {items.productVariant[0].price}</p>
-                            </div>
-                        )
-                    })
-                    }
+                    <div className='grid-pro'>
+                        {products.map((items, index) => {
+                            return (
+                                <div key={index}>
+                                    <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
+                                    </span>
+                                    <p>Name : {items.productName}</p>
+                                    <p>Price : {items.productVariant[0].price}</p>
+                                </div>
+                            )
+                        })
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
 
         </>
     )

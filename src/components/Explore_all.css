@@ -63,28 +63,27 @@
 }
 .grid-pro {
     display: grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin: 10px;
     padding: 10px;
     margin-left: 45px;
-    row-gap: 60px;
+    gap: 60px;
     justify-content: center;
- 
+    flex-grow: 1;
+    flex-basis: 0;
 }
 .grid-pro div {
     display: grid;
     align-items: top;
     justify-content: flex-start;
-    width: 400px;
     height: 400px;
 }
 .try {
     display: flex;
-    justify-content: flex-start;
-    row-gap: 30px;
 }
 .filter-sidebar {
     display: flex;
+    margin-top: 20px;
     width: 300px;
     flex-direction: column;
     gap: 30px;

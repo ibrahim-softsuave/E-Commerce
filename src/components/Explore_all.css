@@ -1,5 +1,6 @@
 .explore-grid-container{
-    display: grid;  
+    display: grid;
+    
 }
 .explore-container-header {
     display: flex;

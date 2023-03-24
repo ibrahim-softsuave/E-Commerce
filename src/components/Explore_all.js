@@ -6,7 +6,9 @@ import axios from './axios'
 const PRODUCTS = '/products'
 const Explore_all = () => {
     const [products, SetProducts] = useState([]);
+    const [filterProducts, SetFilterProducts] = useState([]);
     const [filterBar, SetFilterBar] = useState(false);
+    const [isFilter, SetIsFilter] = useState(false);
     useEffect(
         () => {
             axios.get(PRODUCTS).then(response => {
@@ -17,6 +19,23 @@ const Explore_all = () => {
 
     const handleFilterSide = () => {
         SetFilterBar(!filterBar)
+    }
+    const handleRadio = (e) => {
+        SetIsFilter(true);
+        const values = e.target.value.split(',')
+        if (values[0] === 'any') {
+            SetFilterProducts(products)
+        }
+        else if (values[0] !== values[1]) {
+            SetFilterProducts(products.filter((items) => {
+                return (items.productVariant[0].price >= parseInt(values[0]) && items.productVariant[0].price <= parseInt(values[1]))
+            }))
+        }
+        else if (values[0] === values[1]) {
+            SetFilterProducts(products.filter((items) => {
+                return (items.productVariant[0].price >= values[0])
+            }))
+        }
     }
     return (
         <>
@@ -62,17 +81,26 @@ const Explore_all = () => {
                                 <p>price</p>
                                 <div>
                                     <div className='category2-items'>
-                                        <input type='radio' name='filter-price'></input> <label>Any price</label><br /></div>
-                                    <div className='category2-items'> <input type='radio' name='filter-price'></input><label>1000 to 2000</label><br /></div>
-                                    <div className='category2-items'><input type='radio' name='filter-price'></input><label>2000 to 4000</label><br /></div>
-                                    <div className='category2-items'><input type='radio' name='filter-price'></input><label>Above 4000</label></div>
+                                        <input type='radio' name='filter-price' onChange={handleRadio} value='any' defaultChecked={true} ></input> <label>Any price</label><br /></div>
+                                    <div className='category2-items'> <input type='radio' name='filter-price' value={[1000, 2000]} onChange={handleRadio}></input><label>1000 to 2000</label><br /></div>
+                                    <div className='category2-items'><input type='radio' name='filter-price' value={[2000, 4000]} onChange={handleRadio}></input><label>2000 to 4000</label><br /></div>
+                                    <div className='category2-items'><input type='radio' name='filter-price' value={[4000, 4000]} onChange={handleRadio}></input><label>Above 4000</label></div>
                                 </div>
                             </div>
 
                         </div>
                     </aside> : ''}
                     <div className='grid-pro'>
-                        {products.map((items, index) => {
+                        {isFilter ? filterProducts.map((items, index) => {
+                            return (
+                                <div key={index}>
+                                    <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
+                                    </span>
+                                    <p>Name : {items.productName}</p>
+                                    <p>Price : {items.productVariant[0].price}</p>
+                                </div>
+                            )
+                        }) : products.map((items, index) => {
                             return (
                                 <div key={index}>
                                     <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>

@@ -50,9 +50,11 @@
     margin-left: 10px;
 }
 .prodImage {
-    display: inline-block;
-    width: 300px;
+    display: flex;
+    width:335px;
     height: 300px;
+    min-width: 335px;
+    flex-grow: 1;
 }
 .pro-img {
     height: 0;
@@ -78,6 +80,7 @@
     align-items: top;
     justify-content: flex-start;
     height: 400px;
+    box-shadow: 10px 10px 20px 0 rgba(0,0,0,0.2);
 }
 .try {
     display: flex;

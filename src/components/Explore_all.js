@@ -3,6 +3,7 @@ import './Explore_all.css'
 import * as MDIcons from 'react-icons/md'
 import { useState, useEffect } from 'react'
 import axios from './axios'
+import { Link } from 'react-router-dom'
 const PRODUCTS = '/products'
 const Explore_all = () => {
     const [products, SetProducts] = useState([]);
@@ -12,11 +13,14 @@ const Explore_all = () => {
     useEffect(
         () => {
             axios.get(PRODUCTS).then(response => {
-
                 SetProducts(response.data)
             })
         }, []);
-
+    useEffect(
+        ()=>{
+            localStorage.setItem('products',JSON.stringify(products))
+        },[products]
+    )
     const handleFilterSide = () => {
         SetFilterBar(!filterBar)
     }
@@ -37,6 +41,7 @@ const Explore_all = () => {
             }))
         }
     }
+   
     return (
         <>
             <div className='explore-grid-container'>
@@ -94,20 +99,20 @@ const Explore_all = () => {
                         {isFilter ? filterProducts.map((items, index) => {
                             return (
                                 <div key={index}>
-                                    <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
+                                    <span className='prodImage'><img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
                                     </span>
-                                    <p>Name : {items.productName}</p>
+                                    <p>Name : {items.productName} </p>
                                     <p>Price : {items.productVariant[0].price}</p>
                                 </div>
                             )
                         }) : products.map((items, index) => {
                             return (
-                                <div key={index}>
+                                <Link to ={items.productUrlId}> <div key={index} >
                                     <span className='prodImage'> <img className='pro-img' src={'https://unipick-ui.s3.ap-south-1.amazonaws.com/' + items.productImages[0]} alt='product'></img>
                                     </span>
                                     <p>Name : {items.productName}</p>
                                     <p>Price : {items.productVariant[0].price}</p>
-                                </div>
+                                </div></Link>
                             )
                         })
                         }

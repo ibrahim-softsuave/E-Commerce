@@ -42,7 +42,7 @@ const Navbar = () => {
   const signinDropdown = () => {
     SetSiginDropdown(!sigindropdown);
   }
-  const handleLogout = () =>{
+  const handleLogout = () => {
     if (localStorage.getItem('signin')) {
       localStorage.removeItem('signin');
     }
@@ -102,7 +102,7 @@ const Navbar = () => {
               </li>
             }
           </ul>
-          
+
         </div>
       </nav>
       {signinSuccess || alreadySigIN ? '' : <SignIn

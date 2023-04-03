@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import * as BSIcons from "react-icons/bs";
 import * as GIIcons from "react-icons/gi";
+import SubProductCart from "./SubProductCart";
 
 const ProductDetails = () => {
   const ProductsList = localStorage.getItem("products");
   const Products = JSON.parse(ProductsList);
   const { id } = useParams();
   const item = Products.filter((items) => items.productUrlId === id);
-  console.log(Products);
   const productImages = item[0].productImages;
   const [fullsSizeImage, SetFullSizeImage] = useState("");
-  const [productCount, SetproductCount] = useState(0);
+  const [productCount, SetproductCount] = useState(1);
   const [showContent, SetShowContent] = useState("");
 
   const handleShowContent = (e) => {
@@ -24,7 +24,6 @@ const ProductDetails = () => {
   const handleProductCount = (e) => {
     if (e.target.value === "increase") {
       SetproductCount((previouscount) => previouscount + 1);
-      console.log(productCount);
     } else if (e.target.value === "decrease" && productCount !== 0) {
       SetproductCount((previouscount) => previouscount - 1);
     }
@@ -91,12 +90,12 @@ const ProductDetails = () => {
                     {things.productVariant[0].price}
                   </p>
                   <p>Local tax included (where applicable)</p>
-                  <p className="stock">
+                  <p className={productCount === 0? "stock":"stock show-stock"}>
                     {" "}
                     <BSIcons.BsCheckLg />
                     In stock
                   </p>
-                  <div>
+                  <div className={productCount === 0? "stock-details" :"stock-details show-stock"}>
                     <div>
                       <span>
                         <BSIcons.BsTruck />
@@ -217,26 +216,9 @@ const ProductDetails = () => {
           <p>see more</p>
         </div>
         <div className="sub-product-container">
-          {Products.map((items, index) => {
-            return (
-              <div className="sup-product-card" key={index}>
-                <span className='sup-prod-img-container'>
-                  <img className="sup-prod-img" src={"https://unipick-ui.s3.ap-south-1.amazonaws.com/"+items.productImages[0]} alt='More from this shop'></img>
-                </span>
-                <div className="sup-prod-img-details">
-                    <p>{items.productName}</p>
-                    <p>Featured in Handmade.</p>
-                    <p>{items.brandName}</p>
-                    <p><p className="rupee"><BSIcons.BsCurrencyRupee />{items.productVariant[0].price}</p></p>
-                    <p><BSIcons.BsTruck /></p>
-                    <div>
-                      <div></div>
-                      <p><BSIcons.BsCartPlus/></p>
-                    </div>
-                </div>
-              </div>
-            )
-          })}
+         {Products.map((items)=>{
+           return<SubProductCart values={items}/>
+         })}
         </div>
       </div>
       </div>

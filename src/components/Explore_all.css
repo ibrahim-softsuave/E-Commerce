@@ -73,6 +73,10 @@
   flex-grow: 1;
   flex-basis: 0;
 }
+.grid-pro >a{
+  text-decoration: none;
+  color:#333;
+}
 .grid-pro div {
   display: grid;
   align-items: top;

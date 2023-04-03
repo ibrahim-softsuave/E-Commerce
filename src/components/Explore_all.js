@@ -145,8 +145,11 @@ const Explore_all = () => {
             {isFilter
               ? filterProducts.map((items, index) => {
                   return (
+                    <Link to={items.productUrlId}>
+                       {" "}
                     <div key={index}>
                       <span className="prodImage">
+                      {" "}
                         <img
                           className="pro-img"
                           src={
@@ -159,6 +162,7 @@ const Explore_all = () => {
                       <p>Name : {items.productName} </p>
                       <p>Price : {items.productVariant[0].price}</p>
                     </div>
+                    </Link>
                   );
                 })
               : products.map((items, index) => {

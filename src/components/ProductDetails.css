@@ -1,5 +1,5 @@
-.product-image{
-    margin:0px 100px;
+.product-image {
+  margin: 0px 100px;
 }
 .products {
   display: flex;
@@ -233,66 +233,66 @@
 .more-from {
   display: flex;
   justify-content: space-between;
-  margin:50px 0px;
+  margin: 50px 0px;
 }
 
 .sub-product-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 .sup-product-card {
-    border: 1px solid #e7e4e4;
-    width:250px;
-    max-width: 1fr;
-    height:400px;
-    display: flex;
-    flex-direction: column;
+  border: 1px solid #e7e4e4;
+  width: 250px;
+  max-width: 1fr;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
 }
 .sup-product-card:hover {
-    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
 }
 .sup-prod-img-container {
-    height: 60%;
-    min-height: 60%;
-    margin: 10px 15px;
+  height: 60%;
+  min-height: 60%;
+  margin: 10px 15px;
 }
 .sup-prod-img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .sup-prod-img-details {
-    padding: 5px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap:5px;
+  padding: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.sup-prod-img-details >p{
-    font-family: serif,sans-serif;
+.sup-prod-img-details > p {
+  font-family: serif, sans-serif;
 }
-.sup-prod-img-details >p:first-child{
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-size: 16px;
+.sup-prod-img-details > p:first-child {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
 }
-.sup-prod-img-details >p:nth-child(2){
-    font-size: 14px;
+.sup-prod-img-details > p:nth-child(2) {
+  font-size: 14px;
 }
-.sup-prod-img-details >p:nth-child(3){
-    text-decoration: underline;
-    font-size: 12px;
+.sup-prod-img-details > p:nth-child(3) {
+  text-decoration: underline;
+  font-size: 12px;
 }
 .rupee {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
-.sup-prod-img-details>div{
-    display: flex;
-    justify-content: space-between;
+.sup-prod-img-details > div {
+  display: flex;
+  justify-content: space-between;
 }
